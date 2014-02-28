@@ -59,15 +59,26 @@ A single Question object with all its details
                 "band_number":null,
                 "number_of_answers":3
             }
-    
-    
+
 ### Retrieve a Question[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
     
     [Question][]
 
 ## Question Collection [/api/app/questions/]
 ### List all Questions [GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
 
     [Question][]
@@ -98,12 +109,24 @@ A single QuizSpecification object with information about quiz
 
 
 ### Retrieve a QuizSpecification[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
     
     [QuizSpecification][]
 
 ## QuizSpecification Collection [/api/app/quiz_specifications]
 ### List all QuizSpecifications [GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
         
     [QuizSpecification][]
@@ -158,6 +181,12 @@ A single Quiz object
 
 
 ### Retrieve a Quiz[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
     
     [Quiz][]
@@ -166,6 +195,13 @@ A single Quiz object
 ### List all Quizzes [GET]
 + Parameters
     + by_time (optional, hash) ... ex.: by_time: {from: '2013-03-01'}.
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 
 + Response 200 (application/json)
         
@@ -191,12 +227,24 @@ A single Topic object. It includes topic questions.
 
 
 ### Retrieve a Topic[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
     
     [Topic][]
 
 ## Topics Collection [/api/app/topics]
 ### List all Topics [GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
         
     [Topic][]
@@ -225,12 +273,24 @@ Vehicle category, includes list of associated topis and quiz specification.
 
 
 ### Retrieve a VehicleCategory[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
     
     [VehicleCategory][]
 
 ## VehicleCategory Collection [/api/app/vehicle_categories]
 ### List all Topics [GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
 + Response 200 (application/json)
         
     [VehicleCategory][]
