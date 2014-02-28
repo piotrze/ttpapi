@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://s.theorytestpro.co.uk/api/app
+HOST: http://api.s.theorytestpro.co.uk/
 
 # ttpapp API
 ttpapp API is service make drive tests.
@@ -23,7 +23,7 @@ API entry point
 Questions available in for app
 
 
-## Question [/questions/{id}]
+## Question [/api/app/questions/{id}]
 A single Question object with all its details
 
 + Parameters
@@ -66,7 +66,7 @@ A single Question object with all its details
     
     [Question][]
 
-## Question Collection [/questions/]
+## Question Collection [/api/app/questions/]
 ### List all Questions [GET]
 + Response 200 (application/json)
 
@@ -77,7 +77,7 @@ Quiz types. For now you will probably want to use only:
 * Practice everything
 * Practive topic
 
-## QuizSpecification [/quiz_specifications/{id}]
+## QuizSpecification [/api/app/quiz_specifications/{id}]
 A single QuizSpecification object with information about quiz
 
 + Parameters
@@ -102,7 +102,7 @@ A single QuizSpecification object with information about quiz
     
     [QuizSpecification][]
 
-## QuizSpecification Collection [/quiz_specifications]
+## QuizSpecification Collection [/api/app/quiz_specifications]
 ### List all QuizSpecifications [GET]
 + Response 200 (application/json)
         
@@ -113,7 +113,7 @@ A single QuizSpecification object with information about quiz
 # Group Quiz
 Quiz is a attempt user for list of questions.
 
-## Quiz [/quizzes/{id}]
+## Quiz [/api/app/quizzes/{id}]
 A single Quiz object
 
 + Parameters
@@ -162,7 +162,7 @@ A single Quiz object
     
     [Quiz][]
 
-## Quizzes Collection [/quizzes{?by_time}]
+## Quizzes Collection [/api/app/quizzes{?by_time}]
 ### List all Quizzes [GET]
 + Parameters
     + by_time (optional, hash) ... ex.: by_time: {from: '2013-03-01'}.
@@ -174,7 +174,7 @@ A single Quiz object
 # Group Topic
 Topic is a category for questions.
 
-## Topic [/topics/{id}]
+## Topic [/api/app/topics/{id}]
 A single Topic object. It includes topic questions.
 
 + Parameters
@@ -195,7 +195,7 @@ A single Topic object. It includes topic questions.
     
     [Topic][]
 
-## Topics Collection [/topics]
+## Topics Collection [/api/app/topics]
 ### List all Topics [GET]
 + Response 200 (application/json)
         
@@ -205,7 +205,7 @@ A single Topic object. It includes topic questions.
 # Group VehicleCategory
 Available vehicle categories
 
-## VehicleCategory [/vehicle_categories/{id}]
+## VehicleCategory [/api/app/vehicle_categories/{id}]
 Vehicle category, includes list of associated topis and quiz specification.
 
 + Parameters
@@ -229,7 +229,7 @@ Vehicle category, includes list of associated topis and quiz specification.
     
     [VehicleCategory][]
 
-## VehicleCategory Collection [/vehicle_categories]
+## VehicleCategory Collection [/api/app/vehicle_categories]
 ### List all Topics [GET]
 + Response 200 (application/json)
         
