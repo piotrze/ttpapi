@@ -19,6 +19,234 @@ We are using http basic auth
 # ttpapp API Root [/api/app/]
 API entry point
 
+
+# Group User
+Current user and his access level
+
+
+## User [/api/app/user]
+A single Question object with all its details
+
++ Model (application/json)
+
+    User data, contains student details and info about partner
+    + Body
+    
+            {
+                "user": {
+                    "id": 442064,
+                    "email": "adi-student@example.com",
+                    "name": "adi-student@example.com",
+                    "student": {
+                        "id": 447457,
+                        "company_name": null,
+                        "prefers_hq_video": true,
+                        "speech_enabled": false,
+                        "translation_enabled": true,
+                        "translate_to": "pl",
+                        "chosen_driving_instructor": true,
+                        "vehicle_category_id": 1,
+                        "confirmed_live": false,
+                        "test_booked": null,
+                        "test_booked_on": null,
+                        "age_range": "",
+                        "nationality": null,
+                        "selected_for_ads": false,
+                        "driving_school": {
+                            "id": 447455,
+                            "company_name": "adi-pete@example.com",
+                            "instructor_name": "Sam",
+                            "website_address": "red-adi.com",
+                            "number_of_approved_driving_instructors": null,
+                            "number_of_students_per_year": null,
+                            "approved": false,
+                            "brand_image": "/brand_images/original/missing.png",
+                            "partner_code": "edfb85",
+                            "address_1": "Not provided",
+                            "address_2": null,
+                            "town": "Not provided",
+                            "county": null,
+                            "postcode": "A1 1AA",
+                            "phone": "Not provided",
+                            "membership_number_pattern": null,
+                            "membership_number_label": "Membership card barcode number",
+                            "membership_number_explanation": null,
+                            "confirmed_live": false,
+                            "subdomain": "adi497312",
+                            "franchise_owner": false
+                        }
+                    }
+                }
+            }
+            
+### Retrieve a User[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+    
+    [User][]
+    
+## User access [/api/app/user/access]
+Info about access level.  
+
+Levels:
+
+- `full_access`
+- `no_user`
+- `trial`
+
+### Retrieve a User access[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+    
+            {
+                "access": "full_access"
+            }
+
+
+# Group Quiz
+Quiz is a attempt user for list of questions.
+
+## Quiz [/api/app/quizzes/{id}]
+A single Quiz object
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Quiz
+    
++ Model (application/json)
+    + Body
+    
+            {
+                "id":9362889,
+                "student_id":538262,
+                "summary":null,
+                "review":null,
+                "complete":null,
+                "reveal_answers":null,
+                "case_study_id":26,
+                "score":0,
+                "current_position":1,
+                "seconds_remaining":3415,
+                "next_question":true,
+                "previous_question":false,
+                "topic_id":null,
+                "current_question_id":179268199,
+                "quiz_specification_id":50
+                "quiz_questions": {
+                    [{
+                        "id": 136505995,
+                        "quiz_id": 7048436,
+                        "question_id": 2541,
+                        "review": null,
+                        "position": 1,
+                        "correct": true,
+                        "answer_a": "t",
+                        "answer_b": "",
+                        "answer_c": "",
+                        "answer_d": "",
+                        "answer_e": null,
+                        "answer_f": null
+                    }]
+                }
+            }
+
+
+### Retrieve a Quiz[GET]
++ Request
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+    
+    [Quiz][]
+
+## Store Quiz [/api/app/quizzes]
+### Create a Quiz[POST]
+Creates full quiz with answers(quiz questions).
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+    
+            {
+                "quiz": {
+                    "quiz_specification_id":70, 
+                    "quiz_questions": [{
+                        "question_id":3000, "answer_a":"t"
+                    }], 
+                    "created_at":"2013-03-28 13:39:31"
+                }
+            }
+       
+
++ Response 200 (application/json)
+    
+    [Quiz][]
+
+
+## Store many Quizzes [/api/app/quizzes/create_many]
+### Bulk quizzes creation[POST]
+Create many quizzes 
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            
+    + Body
+    
+            {
+                "quizzes": [{
+                    "quiz_specification_id":70, 
+                    "quiz_questions": [{
+                        "question_id":3000, 
+                        "answer_a":"t"
+                    }], 
+                    "created_at":"2013-03-28 13:39:31"
+                }]
+            } 
+       
+
++ Response 200 (application/json)
+    
+    [Quiz][]
+
+
+
+
+## Quizzes Collection [/api/app/quizzes{?by_time}]
+### List all Quizzes [GET]
++ Parameters
+    + by_time (optional, hash) ... ex.: by_time: {from: '2013-03-01'}.
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
+
++ Response 200 (application/json)
+        
+    [Quiz][]
+
+
 # Group Questions
 Questions available in for app
 
@@ -35,29 +263,31 @@ A single Question object with all its details
     + Body
 
             {
-                "id":2567,
-                "topic_name":"Accidents",
-                "stem":"You have stopped at an incident to give help. Which THREE things should you do?",
-                "stem_image_path":"quiz/",
-                "mark_answer_text":"Mark three answers",
-                "answer":"ABE",
-                "option_a":"Keep injured people warm and comfortable",
-                "option_b":"Keep injured people calm by talking to them reassuringly",
-                "option_c":"Keep injured people on the move by walking them around",
-                "option_d":"Give injured people a warm drink",
-                "option_e":"Make sure that injured people are not left alone",
-                "option_f":null,
-                "image_a_path":"quiz/",
-                "image_b_path":"quiz/",
-                "image_c_path":"quiz/",
-                "image_d_path":"quiz/",
-                "image_e_path":"quiz/",
-                "image_f_path":"quiz/",
-                "northern_ireland_exempt":null,
-                "free":true,
-                "explanation":"There are a number of things you can do to help, even without expert training. Be aware of further danger and fire, make sure the area is safe. People may be in shock. Don\u2019t give them anything to eat or drink. Keep them warm and comfortable and reassure them. Don\u2019t move injured people unless there is a risk of further danger.",
-                "band_number":null,
-                "number_of_answers":3
+                "question": {
+                    "id":2567,
+                    "topic_name":"Accidents",
+                    "stem":"You have stopped at an incident to give help. Which THREE things should you do?",
+                    "stem_image_path":"quiz/",
+                    "mark_answer_text":"Mark three answers",
+                    "answer":"ABE",
+                    "option_a":"Keep injured people warm and comfortable",
+                    "option_b":"Keep injured people calm by talking to them reassuringly",
+                    "option_c":"Keep injured people on the move by walking them around",
+                    "option_d":"Give injured people a warm drink",
+                    "option_e":"Make sure that injured people are not left alone",
+                    "option_f":null,
+                    "image_a_path":"quiz/",
+                    "image_b_path":"quiz/",
+                    "image_c_path":"quiz/",
+                    "image_d_path":"quiz/",
+                    "image_e_path":"quiz/",
+                    "image_f_path":"quiz/",
+                    "northern_ireland_exempt":null,
+                    "free":true,
+                    "explanation":"There are a number of things you can do to help, even without expert training. Be aware of further danger and fire, make sure the area is safe. People may be in shock. Don\u2019t give them anything to eat or drink. Keep them warm and comfortable and reassure them. Don\u2019t move injured people unless there is a risk of further danger.",
+                    "band_number":null,
+                    "number_of_answers":3
+                }
             }
 
 ### Retrieve a Question[GET]
@@ -131,81 +361,6 @@ A single QuizSpecification object with information about quiz
         
     [QuizSpecification][]
  
-
-        
-# Group Quiz
-Quiz is a attempt user for list of questions.
-
-## Quiz [/api/app/quizzes/{id}]
-A single Quiz object
-
-+ Parameters
-    + id (required, number, `1`) ... Numeric `id` of the Quiz
-    
-+ Model (application/json)
-    + Body
-    
-            {
-                "id":9362889,
-                "student_id":538262,
-                "summary":null,
-                "review":null,
-                "complete":null,
-                "reveal_answers":null,
-                "case_study_id":26,
-                "score":0,
-                "current_position":1,
-                "seconds_remaining":3415,
-                "next_question":true,
-                "previous_question":false,
-                "topic_id":null,
-                "current_question_id":179268199,
-                "quiz_specification_id":50
-                "quiz_questions": {
-                    [{
-                        "id": 136505995,
-                        "quiz_id": 7048436,
-                        "question_id": 2541,
-                        "review": null,
-                        "position": 1,
-                        "correct": true,
-                        "answer_a": "t",
-                        "answer_b": "",
-                        "answer_c": "",
-                        "answer_d": "",
-                        "answer_e": null,
-                        "answer_f": null
-                    }]
-                }
-            }
-
-
-### Retrieve a Quiz[GET]
-+ Request
-
-    + Headers
-
-            Accept: application/json
-
-+ Response 200 (application/json)
-    
-    [Quiz][]
-
-## Quizzes Collection [/api/app/quizzes{?by_time}]
-### List all Quizzes [GET]
-+ Parameters
-    + by_time (optional, hash) ... ex.: by_time: {from: '2013-03-01'}.
-
-+ Request
-
-    + Headers
-
-            Accept: application/json
-
-
-+ Response 200 (application/json)
-        
-    [Quiz][]
 
 # Group Topic
 Topic is a category for questions.
