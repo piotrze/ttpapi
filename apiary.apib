@@ -301,8 +301,11 @@ A single Question object with all its details
     
     [Question][]
 
-## Question Collection [/api/app/questions/]
+## Question Collection [/api/app/questions{?vehicle_category}]
 ### List all Questions [GET]
++ Parameters
+    + vehicle_category (optional, number) ... ex.: vehicle_category: 1.
+
 + Request
 
     + Headers
@@ -392,8 +395,11 @@ A single Topic object. It includes topic questions.
     
     [Topic][]
 
-## Topics Collection [/api/app/topics]
+## Topics Collection [/api/app/topics{?vehicle_category}]
 ### List all Topics [GET]
++ Parameters
+    + vehicle_category (optional, number) ... ex.: vehicle_category: 1
+
 + Request
 
     + Headers
