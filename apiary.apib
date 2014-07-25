@@ -26,7 +26,7 @@ Current user and his access level
 ## User [/api/app/user]
 A single user object with all its details
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Model (application/json)
@@ -101,7 +101,7 @@ Levels:
 - `no_user`
 - `trial`
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 ### Retrieve a User access[GET]
@@ -126,7 +126,7 @@ Quiz is an attempt by a user at list of questions.
 ### Bulk quiz creation[POST]
 Create many quizzes 
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Request
@@ -162,7 +162,7 @@ _THIS CALL IS USED BY THE iOS APPLICATION_
 ## Read Quiz Collection [/api/app/quizzes{?by_time}]
 ### List all Quizzes [GET]
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Parameters
@@ -191,7 +191,7 @@ Questions available in for app
 ## Question Collection [/api/app/questions{?vehicle_category}]
 ### List all Questions [GET]
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Parameters
@@ -246,7 +246,7 @@ Topic is a category for questions.
 ## Topics Collection [/api/app/topics{?vehicle_category}]
 ### List all Topics [GET]
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Parameters
@@ -273,7 +273,7 @@ Resources to take hazard perception video tests
 ## HazardPerceptionTest Collection [/api/user/hpt_tests]
 ### List all HazardPerceptionTests [GET]
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 + Request
@@ -313,7 +313,7 @@ _THIS CALL IS USED BY THE iOS APPLICATION_
 ### Bulk hazard perception test attempt creation[POST]
 Create many hazard perception test attemtps - record a user's attempt.
 
-_THIS CALL IS USED BY THE iOS APPLICATION_
+_This call is used by the iOS app_
 ------------------------------------------
 
 
@@ -363,6 +363,11 @@ _THIS CALL IS USED BY THE iOS APPLICATION_
 
 
 # Group DEPRECATED DO NOT USE
+
+_These calls are not used in the iOS app_
+-----------------------------------------
+
+
 Available vehicle categories
 
 ## VehicleCategory [/api/app/vehicle_categories/{id}]
@@ -521,7 +526,7 @@ Creates full quiz with answers(quiz questions).
 ## Question [/api/app/questions/{id}]
 A single Question object with all its details
 
-*THIS IS NOT USED BY THE iOS APPLICATION*
+*THIS IS NOT USED BY THE iOS APP*
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Question.
