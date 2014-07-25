@@ -544,6 +544,48 @@ Create many hazard perception test attemtps - record a user's attempt.
             }
 
 
+## Create one HazardPerceptionTest [/api/app/user/hpt_tests]
+### Create a hazard perception test attempt creation[POST]
+Create a hazard perception test attemtp - record a user's attempt.
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            
+    
+    + Body
+    
+            {
+                "hpt_test":
+                    {
+                        "video_id": 3, 
+                        "score": 7, 
+                        "score_out_of": 8, 
+                        "created_at": "2013-03-04 12:45:12", 
+                        "disqualified": false 
+                    }
+            }
+            
++ Response 200 (application/json)
+    + Body
+
+            {
+                "hpt_test":
+                    {
+                        "id":4738339,
+                        "student_id":609477,
+                        "video_id":3,
+                        "created_at":"2013-03-04T12:45:12+00:00",
+                        "disqualified":false,
+                        "score":7,
+                        "score_out_of":8
+                    }
+            }
+            
+
+
 
 
 
