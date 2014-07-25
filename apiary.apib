@@ -460,4 +460,42 @@ Vehicle category, includes list of associated topis and quiz specification.
 
   
 # Group Hazard perception tests
-Resuorces to take video hpt tests
+Resources to take hazard perception video tests
+
+## HazardPerceptionTest Collection [/api/user/hpt_tests]
+### List all HazardPerceptionTests [GET]
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+    + Body
+    
+            {
+                "hpt_tests": 
+                [
+                    {
+                        "id": 2675680,
+                        "student_id": 447457,
+                        "video_id": 1,
+                        "created_at": "2013-03-22T11:30:31+00:00",
+                        "disqualified": "false",
+                        "score": 3,
+                        "score_out_of": 5
+                    },
+                    {
+                        "id": 2675682,
+                        "student_id": 447457,
+                        "video_id": 1,
+                        "created_at": "2013-03-29T16:02:32+00:00",
+                        "disqualified": "false",
+                        "score": 3,
+                        "score_out_of": 5
+                    }
+                ]
+            }
+
+
