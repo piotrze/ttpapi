@@ -498,4 +498,55 @@ Resources to take hazard perception video tests
                 ]
             }
 
+## Create many HazardPerceptionTests [/api/app/user/hpt_tests/create_many]
+### Bulk hazard perception test attempt creation[POST]
+Create many hazard perception test attemtps - record a user's attempt.
+
++ Request
+
+    + Headers
+
+            Accept: application/json
+            
+    
+    + Body
+    
+            {
+                "hpt_tests":
+                    [
+                        {
+                            "video_id": 3, 
+                            "score": 7, 
+                            "score_out_of": 8, 
+                            "created_at": "2013-03-04 12:45:12", 
+                            "disqualified": false 
+                        } 
+                    ]
+                }
+            }
+
++ Response 200 (application/json)
+    + Body
+
+            {
+                "hpt_tests": 
+                [
+                    {
+                        "id": 2675680,
+                        "student_id": 447457,
+                        "video_id": 3,
+                        "created_at": "2013-03-04T12:45:12+00:00",
+                        "disqualified": "false",
+                        "score": 7,
+                        "score_out_of": 8
+                    }
+                ]
+            }
+
+
+
+
+
+
+
 
