@@ -117,7 +117,7 @@ Levels:
 Quiz is an attempt by a user at list of questions.
 
 ## Quiz [/api/app/quizzes/{id}]
-A single Quiz object
+Read a single Quiz object
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Quiz
@@ -160,7 +160,7 @@ A single Quiz object
             }
 
 
-### Retrieve a Quiz[GET]
+### Read a Quiz[GET]
 + Request
 
     + Headers
@@ -171,7 +171,7 @@ A single Quiz object
     
     [Quiz][]
 
-## Store Quiz [/api/app/quizzes]
+## Create Quiz [/api/app/quizzes]
 ### Create a Quiz[POST]
 Creates full quiz with answers(quiz questions).
 
@@ -199,8 +199,8 @@ Creates full quiz with answers(quiz questions).
     [Quiz][]
 
 
-## Store many Quizzes [/api/app/quizzes/create_many]
-### Bulk quizzes creation[POST]
+## Create many Quizzes [/api/app/quizzes/create_many]
+### Bulk quiz creation[POST]
 Create many quizzes 
 
 + Request
@@ -230,7 +230,7 @@ Create many quizzes
 
 
 
-## Quizzes Collection [/api/app/quizzes{?by_time}]
+## Read Quiz Collection [/api/app/quizzes{?by_time}]
 ### List all Quizzes [GET]
 + Parameters
     + by_time (optional, hash) ... ex.: by_time: {from: '2013-03-01'}.
